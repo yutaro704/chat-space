@@ -29,8 +29,9 @@ Things you may want to cover:
 |Email|string|null: false, unique: true|
 |password|string|null: false|
 ### Association
-- has_many :message
-- has_many :group thought user_group
+- has_many :messages
+- has_many :groups thought user_group
+- has_many :user_group
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -40,21 +41,24 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
+- belongs_to :user
+- belongs_to :group
 
 ## user_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
+- belongs_to :user
 - belongs_to :message
 
-## groupテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-has_many :users thought user_group
+- has_many :users thought user_group
+- has_many :user_group
+- has_many :messages
