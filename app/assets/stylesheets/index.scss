@@ -1,0 +1,24 @@
+.message-form{
+
+}
+
+.chat-side{
+  width: 300px;
+  &__header {
+    height: 100px;
+    display: flex;
+    padding: 0 20px;
+    background-color: #253141;
+    color: white;
+    align-items: center;
+    &__box {
+      display: flex;
+      font-weight: bold;
+      &__name{
+        font-size: 16px;
+
+      }
+
+    }
+  }
+}
