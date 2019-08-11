@@ -1,5 +1,4 @@
 .message-form{
-
 }
 
 .chat-side{
@@ -13,12 +12,32 @@
     align-items: center;
     &__box {
       display: flex;
-      font-weight: bold;
       &__name{
         font-size: 16px;
-
+        font-weight: bold;
       }
-
+    }
+  }
+  &__groups {
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    background-color: #2F3E51;
+    &__group {
+      padding-top: 20px;
+      &__name {
+        font-size: 15px;
+        color: #ffffff;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      &__message {
+        font-size: 11px;
+        color: #ffffff;
+        font-weight: bold;
+        padding-bottom: 40px;
+      }
     }
   }
 }
+
+
