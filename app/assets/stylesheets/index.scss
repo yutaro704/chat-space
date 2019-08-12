@@ -13,9 +13,14 @@
     align-items: center;
     &__box {
       display: flex;
+      justify-content: space-between;
+      width: 100%;
       &__name{
         font-size: 16px;
         font-weight: bold;
+      }
+      &__menu{
+        display: flex;
       }
     }
   }
@@ -104,11 +109,22 @@
     &__new-message{
       display: flex;
       padding: 20px 40px;
+      position: relative;
       &__input-box{
         background-color: #FFFFFF;
         height: 50px;
         width: 100%;
-        position: relative;
+        padding: 0 40px 0 10px;
+        border-style: none;
+      }
+      &__image{
+        font-size: 1.3rem;
+        position: absolute;
+        bottom: 30px;
+        right: 170px;
+        &__file{
+          display: none;
+        }
       }
       &__send-btn{
         height: 50px;
