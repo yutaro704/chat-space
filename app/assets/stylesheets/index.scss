@@ -1,0 +1,139 @@
+.message-form{
+}
+
+.chat-side{
+  width: 300px;
+  float: left;
+  &__header {
+    height: 100px;
+    display: flex;
+    padding: 0 20px;
+    background-color: #253141;
+    color: white;
+    align-items: center;
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      &__name{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__menu{
+        display: flex;
+      }
+    }
+  }
+  &__groups {
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    background-color: #2F3E51;
+    &__group {
+      padding-top: 20px;
+      &__name {
+        font-size: 15px;
+        color: #ffffff;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      &__message {
+        font-size: 11px;
+        color: #ffffff;
+        font-weight: bold;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
+.chat-main {
+  width: calc(100vw - 300px);
+  float: left;
+  &__header{
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    border-bottom: solid 1px #eee;
+    justify-content: space-between;
+    &__box{
+      margin-top: 35px;
+      &__name{
+        font-size: 20px;
+        color: #333333;
+      }
+      &__members{
+        font-size: 12px;
+        color: #999999;
+        padding-top: 12px;
+      }
+    }
+    &__edit {
+      height: 40px;
+      line-height: 40px;
+      margin-top: 28px;
+      padding: 0 20px;
+      border: solid 1px #38aef0;
+      color: #38aef0;
+    }
+  }
+  &__messages{
+    height: calc(100vh - 190px);
+    overflow: scroll;
+    &__group{
+      padding: 46px 40px;
+      &__upper{
+        display: flex;
+        padding-bottom: 10px;
+        &__name{
+          font-size: 16px;
+          color:#434A54;
+          padding-right: 10px;
+          font-weight: bold;
+        }
+        &__date{
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__lower{
+        padding-bottom: 10px;
+        &__text{
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
+  }
+  &__form{
+    height: 90px;
+    background-color: #DDDDDD;
+    &__new-message{
+      display: flex;
+      padding: 20px 40px;
+      position: relative;
+      &__input-box{
+        background-color: #FFFFFF;
+        height: 50px;
+        width: 100%;
+        padding: 0 40px 0 10px;
+        border-style: none;
+      }
+      &__image{
+        font-size: 1.3rem;
+        position: absolute;
+        bottom: 30px;
+        right: 170px;
+        &__file{
+          display: none;
+        }
+      }
+      &__send-btn{
+        height: 50px;
+        width: 100px;
+        background-color: #4CAFF1;
+        color: #FFFFFF;
+        margin-left: 15px;
+        padding: 0 30px ;
+      }
+    }
+  }
+}
