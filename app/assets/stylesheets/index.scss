@@ -72,11 +72,52 @@
   }
   &__messages{
     height: calc(100vh - 190px);
-    // padding: 46px 40px;
     overflow: scroll;
+    &__group{
+      padding: 46px 40px;
+      &__upper{
+        display: flex;
+        padding-bottom: 10px;
+        &__name{
+          font-size: 16px;
+          color:#434A54;
+          padding-right: 10px;
+          font-weight: bold;
+        }
+        &__date{
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__lower{
+        padding-bottom: 10px;
+        &__text{
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
   }
   &__form{
     height: 90px;
-    padding: 0 40px;
+    background-color: #DDDDDD;
+    &__new-message{
+      display: flex;
+      padding: 20px 40px;
+      &__input-box{
+        background-color: #FFFFFF;
+        height: 50px;
+        width: 100%;
+        position: relative;
+      }
+      &__send-btn{
+        height: 50px;
+        width: 100px;
+        background-color: #4CAFF1;
+        color: #FFFFFF;
+        margin-left: 15px;
+        padding: 0 30px ;
+      }
+    }
   }
 }
