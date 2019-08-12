@@ -5,10 +5,10 @@
         %p.chat-side__header__box__name yutaro
         %ul.chat-side__header__box__menu
           %li.chat-side__header__box__create-group
-            %a{:href => "/"}
+            = link_to root_path do
               %i.fa.fa-edit
           %li.chat-side__header__box__edit-account
-            %a{:href => "/"}
+            = link_to root_path do
               %i.fa.fa-cog
     .chat-side__groups
       .chat-side__groups__group
@@ -20,7 +20,7 @@
         .chat-main__header__box__name test-group
         .chat-main__header__box__members member: yutaro
       .chat-main__header__edit
-        %a{:href => "/"}
+        = link_to root_path do
           .chat-main__header__edit__text Edit
     .chat-main__messages
       .chat-main__messages__group
@@ -31,9 +31,9 @@
           .chat-main__messages__group__lower__text これはテストです
     .chat-main__form
       %form.chat-main__form__new-message
-        %input.chat-main__form__new-message__input-box{:placeholder => "type a message", :type => "text"}
-        %label.chat-main__form__new-message__image{:for => "chat-main__form__new-message__input-box", :id => "input-box", :for => "image"}
+        %input.chat-main__form__new-message__input-box{placeholder: "type a message", type: "text"}
+        %label.chat-main__form__new-message__image{for: "chat-main__form__new-message__input-box", id: "input-box", for: "image"}
           %i.fa.fa-image
-          %input#image.chat-main__form__new-message__image__file{:name => "message", :type => "file"}
+          %input#image.chat-main__form__new-message__image__file{name: "message", type: "file"}
 
-        %input.chat-main__form__new-message__send-btn{:value => "Send", :type => "submit"}
+        %input.chat-main__form__new-message__send-btn{value: "Send", type: "submit"}
