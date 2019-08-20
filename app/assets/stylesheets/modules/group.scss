@@ -105,3 +105,48 @@ li {
     }
   }
 }
+
+.chat-side{
+  width: 300px;
+  float: left;
+  &__header {
+    height: 100px;
+    display: flex;
+    padding: 0 20px;
+    background-color: #253141;
+    color: white;
+    align-items: center;
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      &__name{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__menu{
+        display: flex;
+      }
+    }
+  }
+  &__groups {
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    background-color: #2F3E51;
+    &__group {
+      padding-top: 20px;
+      &__name {
+        font-size: 15px;
+        color: #ffffff;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      &__message {
+        font-size: 11px;
+        color: #ffffff;
+        font-weight: bold;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
