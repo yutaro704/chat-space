@@ -38,8 +38,7 @@ $(function(){
       $('.chat-main__messages').append(html);
       $('.chat-main__messages')
       $('.chat-main__messages').animate({scrollTop: $('.chat-main__messages')[0].scrollHeight}, 'fast');
-      $('#message_content').val('')
-      $('#message_image').val('')
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('error');
