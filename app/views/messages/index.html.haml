@@ -1,19 +1,38 @@
-
--# .chat-main
--#   .chat-main__header
--#     .chat-main__header__box
--#       .chat-main__header__box__name test-group
--#       .chat-main__header__box__members member: yutaro
--#     .chat-main__header__edit
--#       = link_to root_path do
--#         .chat-main__header__edit__text Edit
-.chat-main__message
-  = render @messages
-  -# .chat-main__form
-  -#   =form_for [@group, @message] do |f|
-  -#     = f.text_field :content, class: 'chat-main__form__new-message', placeholder: 'type a message'
-  -#       = f.label :image, class: 'chat-main__form__new-message__image' do
-  -#         = fa_icon 'picture-o' class: 'chat-main__form__new-message__image'
-  -#           = f.file_field :image, class: 'chat-main__form__new-message__image__file'
-  -#             = f.submit 'Send', class: 'chat-main__form__new-message__send-btnchat-main__form__new-message__send-btn'
-        
+.chat-side
+  .chat-side__header
+    .chat-side__header__box
+      %p.chat-side__header__box__name
+        = current_user.name
+        %ul.chat-side__header__box__menu
+          %li.chat-side__header__box__create-group
+            = link_to new_group_path do
+              = fa_icon 'pencil-square-o', class: 'icon'
+          %li.chat-side__header__box__edit-account
+            = link_to edit_user_path(current_user) do
+              = fa_icon 'cog', class: 'icon'
+  .chat-side__groups
+    .chat-side__groups__group
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .chat-side__groups__group__name
+            = group.name
+          .chat-side__groups__group__message
+            = group.show_last_message
+.chat-main
+  .chat-main__header
+    .chat-main__header__box
+      .chat-main__header__box__name test-group
+      .chat-main__header__box__members member: yutaro
+    .chat-main__header__edit
+      = link_to root_path do
+        .chat-main__header__edit__text Edit
+  .chat-main__messages
+    = render partial: 'message', collection: @messages
+  .chat-main__form
+    =form_for [@group, @message], html: {class: 'chat-main__form__new-message'} do |f|
+      = f.text_field :content, class: 'chat-main__form__new-message', placeholder: 'type a message'
+      .chat-main__form__new-message__input-box
+        = f.label :image, class: 'chat-main__form__image' do
+          = fa_icon 'picture-o', class: 'chat-main__form__new-message__image__icon'
+          = f.file_field :image, class: 'chat-main__form__new-message__image__file'
+      = f.submit 'Send', class: 'chat-main__form__new-message__send-btn'

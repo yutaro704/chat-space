@@ -1,5 +1,3 @@
-.message-form{
-}
 
 .chat-side{
   width: 300px;
@@ -107,9 +105,10 @@
     height: 90px;
     background-color: #DDDDDD;
     &__new-message{
-      display: flex;
-      padding: 20px 40px;
+      height: 5px;
       position: relative;
+      padding: 20px 40px;
+      display: flex;
       &__input-box{
         background-color: #FFFFFF;
         height: 50px;
