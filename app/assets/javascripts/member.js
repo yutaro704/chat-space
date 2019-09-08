@@ -52,12 +52,13 @@ function addMemberList(name, id){
       alert('ユーザー検索に失敗しました')
     })
   });
-  $(function(){
-    $(document).on("click", '.user-search-add', function(){
-      var name = $(this).attr("data-user-name")
-      var id = $(this).attr("data-user-id")
-      $(this).parent().remove();
-      addMemberList(name, id);
-    });
-  })
+  $(document).on("click", '.user-search-add', function(){
+    var name = $(this).attr("data-user-name")
+    var id = $(this).attr("data-user-id")
+    $(this).parent().remove();
+    addMemberList(name, id);
+  });
+  $(document).on("click", ".user-search-remove", function(){
+    $(this).parent().remove();
+  });
 });
