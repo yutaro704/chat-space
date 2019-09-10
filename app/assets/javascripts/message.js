@@ -48,7 +48,7 @@ $(function(){
     });
   });
     
-  // 自動更新
+  // auto update
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var last_message_id = $('.chat-main__messages__group').last().data("id")
