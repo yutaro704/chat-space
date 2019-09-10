@@ -1,26 +1,26 @@
 $(function(){
-    function buildHTML(message){
-      var gif = message.image == null? "" : `<img class="lower-message__image" src="${message.image}" alt="Img"></img>`
-      
-      var html = `<div class="chat-main__messages__group">
-                    <div class="chat-main__messages__group__upper">
-                      <div class="chat-main__messages__group__upper__name">
-                        ${message.name}
-                      </div>
-                      <div class="chat-main__messages__group__upper__date">
-                        ${message.date}
-                      </div>
-                    </div>
-                    <div class="chat-main__messages__group__lower">
-                      <div class="chat-main__messages__group__lower__text">
-                        ${message.content}
-                      </div>
-                      ${gif}
-                    </div>
-                  </div>`
-    return html
+  function buildHTML(message){
+    var gif = message.image == null? "" : `<img class="lower-message__image" src="${message.image}"></img>`
 
-  }
+    var html = `<div class="chat-main__messages__group" data-id="${message.id}">
+                  <div class="chat-main__messages__group__upper">
+                    <div class="chat-main__messages__group__upper__name">
+                      ${message.name}
+                    </div>
+                    <div class="chat-main__messages__group__upper__date">
+                      ${message.date}
+                    </div>
+                  </div>
+                  <div class="chat-main__messages__group__lower">
+                    <div class="chat-main__messages__group__lower__text">
+                      ${message.content}
+                    </div>
+                    ${gif}
+                  </div>
+                </div>`
+  return html
+}
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -47,39 +47,31 @@ $(function(){
     $(".chat-main__form__new-message__send-btn").removeAttr("disabled");
     });
   });
-
-funciton buildMessageHTML(message){
-
-
-} 
-
-
-
-
-
-
-// 自動更新
+    
+  // 自動更新
   var reloadMessages = function() {
-    if(window.location.href.match(/\/groups\/\d+\/\messages/)){
-    var last_message_id = $('.chat-main__messages').data("message_id")
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.chat-main__messages__group').last().data("id")
       $.ajax({
         url: 'api/messages',
-        type: 'get',
-        dataType: 'json',
-        data: {id: last_message_id}
+        type: 'GET',
+        data: {id: last_message_id}, 
+        dataType: 'json'
       })
       .done(function(messages) {
+        console.log("OK!");
         var insertHTML = '';
-        message.forEach(message){
-          insertHTML = buildMessageHTML(message)
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message)
           $('.chat-main__messages').append(insertHTML)
-          // スクロールの設定
-        }
+          $('.chat-main__messages').animate({scrollTop:$('.main-main__messages')[0].scrollHeight});
+          
+        })
       })
       .fail(function() {
         alert('自動更新に失敗しました')
       });
     }
   };
+  setInterval(reloadMessages, 5000);
 });
-
