@@ -120,12 +120,14 @@ li {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      &__name{
+      font-weight: bold;
+      &__name {
         font-size: 16px;
-        font-weight: bold;
       }
-      &__menu{
+      &__menu {
+        float: right;
         display: flex;
+        font-size: 16px;
       }
     }
   }

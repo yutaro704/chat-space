@@ -30,8 +30,10 @@
     = render partial: 'message', collection: @messages
   .chat-main__form
     =form_for [@group, @message], html: {class: 'chat-main__form__new-message'} do |f|
-      = f.text_field :content, class: 'chat-main__form__new-message', placeholder: 'type a message'
+      -# もともとここに記述があったが、テキストボックスの中にイメージアイコンがあったので下の「input-boxに移動、コメントアウト化
+      -# = f.text_field :content, class: 'chat-main__form__new-message', placeholder: 'type a message'
       .chat-main__form__new-message__input-box
+        = f.text_field :content, class: 'chat-main__form__new-message', placeholder: 'type a message'
         = f.label :image, class: 'chat-main__form__image' do
           = fa_icon 'picture-o', class: 'chat-main__form__new-message__image__icon'
           = f.file_field :image, class: 'chat-main__form__new-message__image__file'
