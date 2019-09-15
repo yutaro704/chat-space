@@ -1,12 +1,17 @@
 = render 'shared/side_bar'
+
 .chat-main
   .chat-main__header
     .chat-main__header__box
-      .chat-main__header__box__name test-group
-      .chat-main__header__box__members member: yutaro
+      %h2.chat-main__header__box__name
+        = @group.name
+      %ul.chat-main__header__box__members
+        Member : 
+        %li.chat-main-header__box__members-member
+        - @group.users.each do |user|
+          =user.name
     .chat-main__header__edit
-      = link_to root_path do
-        .chat-main__header__edit__text Edit
+      = link_to "Edit", edit_group_path(@group), class:"main-header__edit__text"
   .chat-main__messages
     = render partial: 'message', collection: @messages
   .chat-main__form
