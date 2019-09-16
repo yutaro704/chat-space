@@ -22,12 +22,17 @@
         &__new-group{
           margin-left:0.3rem;
           font-size: 20px;
-          color: white;
+          .icon {
+            color: white;
+          }
         }
         &__edit-user{
           margin-left:0.3rem;
           font-size: 20px;
           color: white;
+          .icon {
+            color: white;
+          }
         }
       }
     }
