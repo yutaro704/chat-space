@@ -9,20 +9,25 @@
     color: white;
     align-items: center;
     &__box {
-      font-size: 16px;
+      font-size: 20px;
       display: flex;
       justify-content: space-between;
       width: 100%;
-      &__name{
+      &__name {
         font-weight: bold;
       }
       &__menu{
         display: flex;
+        font-size: 16px;
         &__new-group{
           margin-left:0.3rem;
+          font-size: 20px;
+          color: white;
         }
         &__edit-user{
           margin-left:0.3rem;
+          font-size: 20px;
+          color: white;
         }
       }
     }
