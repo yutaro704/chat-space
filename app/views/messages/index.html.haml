@@ -11,7 +11,7 @@
         - @group.users.each do |user|
           =user.name
     .chat-main__header__edit
-      = link_to "Edit", edit_group_path(@group), class:"main-header__edit__text"
+      = link_to "Edit", edit_group_path(@group), class:"a"
   .chat-main__messages
     = render partial: 'message', collection: @messages
   .chat-main__form
