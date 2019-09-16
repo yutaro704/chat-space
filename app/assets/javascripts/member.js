@@ -53,8 +53,8 @@ function addMemberList(name, id){
     })
   });
   $(document).on("click", '.user-search-add', function(){
-    var name = $(this).attr("data-user-name")
-    var id = $(this).attr("data-user-id")
+    var name = $(this).attr("data-user-name");
+    var id = $(this).attr("data-user-id");
     $(this).parent().remove();
     addMemberList(name, id);
   });
