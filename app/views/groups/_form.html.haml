@@ -20,15 +20,18 @@
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
+      .current-user
+        = current_user.name
       .chat-group-users
         = f.hidden_field :user_ids, value: current_user.id, multiple: true
+        .current-group.users__current-user
         -@group.users.each do |user|
           .chat-group-user.clearfix
-            %p.chat-group-user__name
-            = user.name
-            -unless user.name == current_user.name
+            -if current_user.name != user.name 
+              %input{name: "group[user_ids][]", type: "hidden", value: user.id}/
+              %p.chat-group-user__name
+              = user.name
               %a.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn.user-search-remove 削除
-              = f.hidden_field :user_ids, value: @group.users.ids, multiple: true
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
